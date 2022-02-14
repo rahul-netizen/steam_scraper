@@ -4,6 +4,7 @@ import time
 from email import encoders
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import os
 
 import requests
 from bs4 import BeautifulSoup
@@ -131,6 +132,8 @@ def start_driver():
     # options = webdriver.ChromeOptions()
     # driver = webdriver.Chrome(
     #     executable_path='./chromedriver.exe', options=options)
+
+    print(os.listdir('.'))
 
     chrome_options = Options()
     chrome_options.add_argument('--no-sandbox')
