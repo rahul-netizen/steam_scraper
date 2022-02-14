@@ -134,12 +134,13 @@ def start_driver():
     #     executable_path='./chromedriver.exe', options=options)
 
     print(os.listdir('.'))
+    print(os.getcwd())
 
     chrome_options = Options()
     chrome_options.add_argument('--no-sandbox')
     #chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-dev-shm-usage')
-    driver = webdriver.Chrome('./chromedriver',options=chrome_options)
+    driver = webdriver.Chrome('/chromedriver/',options=chrome_options)
 
     driver.get('https://store.steampowered.com/')  # opening browswer
 
