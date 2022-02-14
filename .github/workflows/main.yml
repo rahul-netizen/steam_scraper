@@ -20,5 +20,4 @@ jobs:
               pip install requirements.txt
               python scrapper.py
             env:
-              key: ${{ secrets.key }} # if run.py requires passwords..etc, set it as secrets
-          - name: export index
+              key: ${{ secrets.key }} # if run.py requires passwords..etc, set it as secret
