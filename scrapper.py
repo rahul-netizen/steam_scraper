@@ -202,7 +202,7 @@ def send_email():
     emailto = "unyankopon@gmail.com"
     fileToSend = "steam_data.csv"
     username = "unyankopon"
-    password = ""
+    password = os.environ['EMAIL_PASS']
 
     msg = MIMEMultipart()
     msg["From"] = emailfrom
