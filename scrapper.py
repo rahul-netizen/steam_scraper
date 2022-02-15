@@ -104,6 +104,7 @@ def parse_game_href(href):
 
 
 def scroll_page(driver):
+    print('Scrolling webpage')
     SCROLL_PAUSE_TIME = 0.5
 
     # Get scroll height
