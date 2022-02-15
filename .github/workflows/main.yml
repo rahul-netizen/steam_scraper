@@ -19,7 +19,12 @@ jobs:
               python-version: 3.8 #install the python needed
           - name: execute py script # run the run.py to get the latest data
             run: |
+              google-chrome --version
+              chromedriver --version
               pip install -r requirements.txt
+              pip show selenium
+              google-chrome --headless "http://example.com"
+              echo $?
               python scrapper.py
             env:
               key: ${{ secrets.key }} # if run.py requires passwords..etc, set it as secret
