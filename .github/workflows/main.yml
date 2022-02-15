@@ -22,6 +22,8 @@ jobs:
               google-chrome --version
               chromedriver --version
               pip show selenium
+              pip show requests
+              pip show beautifulsoup4
               pip install -r requirements.txt
               python scrapper.py
             env:
