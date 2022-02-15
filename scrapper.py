@@ -139,7 +139,7 @@ def start_driver():
     print(os.getcwd())
 
     chrome_options = Options()
-    #chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--no-sandbox')
 
@@ -149,6 +149,7 @@ def start_driver():
 
     driver.maximize_window()  # maximize to view top sellers options
     # select and click top sellers option
+    print(driver.title)
     driver.find_element_by_xpath(
         '/html/body/div[1]/div[7]/div[5]/div[1]/div[1]/div/div[1]/div[8]/a[1]').click()
 
