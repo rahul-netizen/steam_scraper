@@ -110,8 +110,8 @@ def scroll_page(driver):
     last_height = driver.execute_script("return document.body.scrollHeight")
 
     # scroll for 20 seconds
-    time_end = time.time() + 20
-    while True and time.time() < time_end:
+    time_end = time.time() + 5
+    while time.time() < time_end:
         # Scroll down to bottom
         driver.execute_script(
             "window.scrollTo(0, document.body.scrollHeight);")
@@ -199,7 +199,7 @@ def send_email():
 
     maintype, subtype = ctype.split("/", 1)
 
-    fp = open(fileToSend)
+    fp = open(fileToSend, encoding="utf-8")
     # Note: we should handle calculating the charset
     attachment = MIMEText(fp.read(), _subtype=subtype)
     fp.close()
@@ -232,7 +232,7 @@ def scrape_steam_page(num):
 
 
 if __name__ == '__main__':
-    num_titles = 50
+    num_titles = 10
     game_info = scrape_steam_page(num_titles)
     # print(game_info[:5])
     send_email()
