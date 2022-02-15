@@ -1,4 +1,5 @@
 from argparse import PARSER
+from cgitb import text
 import mimetypes
 import smtplib
 import time
@@ -12,6 +13,8 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.action_chains import ActionChains
+
 
 
 def get_page(url):
@@ -142,6 +145,11 @@ def start_driver():
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument("--start-maximized")
+    chrome_options.add_argument("--window-size=1920,1080")
+    chrome_options.add_argument('--ignore-certificate-errors')
+    chrome_options.add_argument('--allow-running-insecure-content')
+
 
     driver = webdriver.Chrome(options=chrome_options)
 
@@ -150,8 +158,13 @@ def start_driver():
     driver.maximize_window()  # maximize to view top sellers options
     # select and click top sellers option
     print(driver.title)
+    
+    #driver.get_screenshot_as_file("screenshot.png")
     driver.find_element_by_xpath(
         '/html/body/div[1]/div[7]/div[5]/div[1]/div[1]/div/div[1]/div[8]/a[1]').click()
+    
+
+    #print(driver.find_element_by_css_selector('#noteworthy_tab > span > a.pulldown_desktop').click())
 
     scroll_page(driver)
     html_text = driver.page_source  # get scrolled page contents
