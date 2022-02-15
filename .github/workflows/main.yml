@@ -25,6 +25,7 @@ jobs:
               pip show selenium
               google-chrome --headless "http://example.com"
               echo $?
+              pip install --user --upgrade selenium
               python scrapper.py
             env:
               key: ${{ secrets.key }} # if run.py requires passwords..etc, set it as secret
