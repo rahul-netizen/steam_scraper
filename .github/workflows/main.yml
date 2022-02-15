@@ -21,7 +21,7 @@ jobs:
             run: |
               google-chrome --version
               chromedriver --version
-              pip freeze |grep selenium
+              pip show selenium
               pip install -r requirements.txt
               python scrapper.py
             env:
