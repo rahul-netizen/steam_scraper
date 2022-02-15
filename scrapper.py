@@ -13,8 +13,6 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.action_chains import ActionChains
-
 
 
 def get_page(url):
@@ -163,9 +161,6 @@ def start_driver():
     driver.find_element_by_xpath(
         '/html/body/div[1]/div[7]/div[5]/div[1]/div[1]/div/div[1]/div[8]/a[1]').click()
     
-
-    #print(driver.find_element_by_css_selector('#noteworthy_tab > span > a.pulldown_desktop').click())
-
     scroll_page(driver)
     html_text = driver.page_source  # get scrolled page contents
 
