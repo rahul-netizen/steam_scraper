@@ -112,8 +112,8 @@ def scroll_page(driver):
     last_height = driver.execute_script("return document.body.scrollHeight")
 
     # scroll for 20 seconds
-    time_end = time.time() + 5
-    while time.time() < time_end:
+    time_end = time.time() + 30
+    while True and time.time() < time_end:
         # Scroll down to bottom
         driver.execute_script(
             "window.scrollTo(0, document.body.scrollHeight);")
@@ -197,7 +197,7 @@ def send_email():
     emailto = "unyankopon@gmail.com"
     fileToSend = "steam_data.csv"
     username = "unyankopon"
-    password = ""
+    password = os.environ['EMAIL_PASS']
 
     msg = MIMEMultipart()
     msg["From"] = emailfrom
@@ -243,7 +243,7 @@ def scrape_steam_page(num):
 
 
 if __name__ == '__main__':
-    num_titles = 10
+    num_titles = 100
     game_info = scrape_steam_page(num_titles)
     # print(game_info[:5])
     send_email()
