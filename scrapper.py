@@ -1,3 +1,4 @@
+from argparse import PARSER
 import mimetypes
 import smtplib
 import time
@@ -16,7 +17,7 @@ from selenium.webdriver.chrome.options import Options
 def get_page(url):
     response = requests.get(url)
     if response.ok:
-        doc = BeautifulSoup(response.text)
+        doc = BeautifulSoup(response.text, features='html.parser')
     else:
         print('Page Loading Failed!')
 
@@ -157,14 +158,14 @@ def start_driver():
 
 def get_titles(html_text):
     print('Getting Game titles')
-    doc = BeautifulSoup(html_text)
+    doc = BeautifulSoup(html_text,features='html.parser')
     titles_a_tags = doc.find(
         'div', attrs={'id': 'search_resultsRows'}).find_all('a')
     return titles_a_tags
 
 
 def write_to_csv(info, path='./steam_data.csv'):
-    with open(path, 'w') as f:
+    with open(path, 'w',encoding="utf-8") as f:
         if(len(info) == 0):
             print('Nothing to write!')
             return
@@ -234,4 +235,4 @@ if __name__ == '__main__':
     num_titles = 50
     game_info = scrape_steam_page(num_titles)
     # print(game_info[:5])
-    send_email
+    send_email()
