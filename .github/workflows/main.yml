@@ -5,6 +5,8 @@ on:
   workflow_dispatch:
   push:
     branches: [master]
+env:
+  EMAIL_PASS: ${{ EMAIL_OYAN_PASS }}
   
 jobs:
       build:
