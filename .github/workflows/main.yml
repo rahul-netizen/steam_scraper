@@ -3,6 +3,8 @@ on:
   schedule:
     - cron: "0 0 * * *" #runs at 00:00 UTC everyday
   workflow_dispatch:
+  push:
+    branches: [master]
   
 jobs:
       build:
@@ -17,8 +19,6 @@ jobs:
               python-version: 3.8 #install the python needed
           - name: execute py script # run the run.py to get the latest data
             run: |
-              wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-              sudo apt install ./google-chrome-stable_current_amd64.deb
               pip install -r requirements.txt
               python scrapper.py
             env:
