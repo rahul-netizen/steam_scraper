@@ -21,10 +21,8 @@ jobs:
             run: |
               google-chrome --version
               chromedriver --version
-              pip show selenium
-              pip show requests
-              pip show beautifulsoup4
               pip install -r requirements.txt
+              pip show selenium
               python scrapper.py
             env:
               key: ${{ secrets.key }} # if run.py requires passwords..etc, set it as secret
