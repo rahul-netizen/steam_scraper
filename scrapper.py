@@ -45,6 +45,7 @@ def parse_game_titles(title):
             # find price latest price with discount
             title_price = title.find(
                 'div', class_='col search_price discounted responsive_secondrow')
+        #online resources contain "$" in price
         title_price = title_price.text.split('$')[-1]
         print(title_price)
         price = [i for i in title_price if i.isalnum()]
@@ -73,7 +74,9 @@ def parse_game_href(href):
 
     try:
         title_descp = doc.find(
-            'div', class_='game_description_snippet').text.strip()
+            'div', class_='game_description_snippet')
+        if title_descp:    
+            title_descp = title_descp.text.strip()
 
         title_review = doc.find('div', 'summary column')
         title_review = clean_review_tags(title_review, '\n')
