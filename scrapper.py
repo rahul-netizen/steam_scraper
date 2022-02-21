@@ -17,6 +17,7 @@ from selenium.webdriver.chrome.options import Options
 
 def get_page(url):
     response = requests.get(url)
+    print(url)
     if response.ok:
         doc = BeautifulSoup(response.text, features='html.parser')
     else:
