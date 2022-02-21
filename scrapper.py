@@ -7,6 +7,7 @@ from email import encoders
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import os
+from numpy import double
 
 import requests
 from bs4 import BeautifulSoup
@@ -45,7 +46,10 @@ def parse_game_titles(title):
             # find price latest price with discount
             title_price = title.find(
                 'div', class_='col search_price discounted responsive_secondrow')
-        title_price = title_price.text.split('₹')[-1].strip()
+        title_price = title_price.text.strip()
+
+        price = [i for i in title_price if i.isalnum()]
+        title_price = float(''.join(price))
 
     except:
         title_name, title_date, title_price = 'NA', 'NA', 'NA'
@@ -135,9 +139,6 @@ def start_driver():
     # options = webdriver.ChromeOptions()
     # driver = webdriver.Chrome(
     #     executable_path='./chromedriver.exe', options=options)
-
-    print(os.listdir('.'))
-    print(os.getcwd())
 
     chrome_options = Options()
     chrome_options.add_argument('--headless')
