@@ -17,7 +17,6 @@ from selenium.webdriver.chrome.options import Options
 
 def get_page(url):
     response = requests.get(url)
-    print(url)
     if response.ok:
         doc = BeautifulSoup(response.text, features='html.parser')
     else:
@@ -47,7 +46,7 @@ def parse_game_titles(title):
             title_price = title.find(
                 'div', class_='col search_price discounted responsive_secondrow')
         title_price = title_price.text.split()[-1]
-
+        print(title_price)
         price = [i for i in title_price if i.isalnum()]
         title_price = float(''.join(price))
 
