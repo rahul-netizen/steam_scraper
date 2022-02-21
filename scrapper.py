@@ -45,7 +45,7 @@ def parse_game_titles(title):
             # find price latest price with discount
             title_price = title.find(
                 'div', class_='col search_price discounted responsive_secondrow')
-        title_price = title_price.text.strip()
+        title_price = title_price.text.split()[-1]
 
         price = [i for i in title_price if i.isalnum()]
         title_price = float(''.join(price))
