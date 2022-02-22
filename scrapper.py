@@ -87,10 +87,12 @@ def parse_game_href(href):
             title_rating = 0
 
         developer = doc.find('div', class_='dev_row')
-        developer = developer.text.strip().split()[1]
+        developer = developer.text.strip().split()[1:]
+        developer = ' '.join(developer)
 
         publisher = doc.find('div', class_='dev_row').find_next_sibling()
-        publisher = publisher.text.strip().split()[1]
+        publisher = publisher.text.strip().split()[1:]
+        publisher = ' '.join(publisher)
 
         title_tags = doc.find('div', class_='glance_tags popular_tags')
         title_tags = clean_review_tags(title_tags, '\t')
