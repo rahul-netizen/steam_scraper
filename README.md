@@ -20,3 +20,15 @@ Or by going to this [link](https://mybinder.org/v2/gh/rahul-netizen/steam_scrapp
 - Sent the csv file using *SMTP*
 - Added version control using *git*
 - Created a *github action* to automate whole workflow from opening browser, scrapping info, saving csv then sending it to email on scheduled time
+
+
+> To use this repo
+- Fork this repo and add these repository secrets to recieve send/recieve emails using these same named keys, refer [this](https://medium.datadriveninvestor.com/accessing-github-secrets-in-python-d3e758d8089b) on how to add repository secrets
+
+![Imgur](https://i.imgur.com/dETq8cz.png)
+
+- To run locally,make a virtual environment (recommanded) then acitivate the env 
+- Clone the repo, navigate to it
+- Using terminal/cmd run command `pip install -r requirements.txt` 
+- Then `python scrapper.py`
+- Either way you can always go ahead and use the jupyter notebook which is very good way to experiment with the code.
