@@ -249,7 +249,7 @@ def scrape_steam_page(num):
 
 
 if __name__ == '__main__':
-    num_titles = 500
+    num_titles = 10
     game_info = scrape_steam_page(num_titles)
     # print(game_info[:5])
     send_email()
