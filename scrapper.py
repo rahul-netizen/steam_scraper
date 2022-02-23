@@ -203,7 +203,7 @@ def send_email():
     emailto = os.environ['TO_EMAIL']
     fileToSend = "steam_data.csv"
     username = os.environ['USERNAME_FROM']
-    password = os.environ['EMAIL_FROM_PASS']
+    password = os.environ['FROM_EMAIL_PASS']
 
     msg = MIMEMultipart()
     msg["From"] = emailfrom
