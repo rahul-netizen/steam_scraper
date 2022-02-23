@@ -198,11 +198,12 @@ def write_to_csv(info, path='./steam_data.csv'):
 def send_email():
     print('Sending email..')
 
-    emailfrom = 'unyankopon@gmail.com'
-    emailto = "unyankopon@gmail.com"
+    #get secrets from os
+    emailfrom =  os.enivron['FROM_EMAIL']
+    emailto = os.environ['TO_EMAIL']
     fileToSend = "steam_data.csv"
-    username = "unyankopon"
-    password = os.environ['EMAIL_PASS']
+    username = os.environ['USERNAME_FROM']
+    password = os.environ['EMAIL_FROM_PASS']
 
     msg = MIMEMultipart()
     msg["From"] = emailfrom
