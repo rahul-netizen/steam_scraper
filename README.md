@@ -10,6 +10,7 @@ Or by going to this [link](https://mybinder.org/v2/gh/rahul-netizen/steam_scrapp
 # Steam Web Scrapper
 ![img](https://cdn.cloudflare.steamstatic.com/store/home/store_home_share.jpg)
 
+> In this project I did following things:
 
 - Used *selenium* to run the browser to open the steam website
 - Navigated to topsellers page, scrapped game titles for info like name,price,date of game title using *beautiful soup*
