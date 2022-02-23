@@ -6,7 +6,10 @@ on:
   push:
     branches: [master]
 env:
-  EMAIL_PASS: ${{ secrets.EMAIL_OYAN_PASS }}
+  FROM_EMAIL_PASS: ${{ secrets.EMAIL_FROM_PASS }}
+  FROM_EMAIL: ${{ secrets.EMAIL_FROM }}
+  USERNAME_FROM:  ${{ secrets.USERNAME_FROM }}
+  TO_EMAIL:  ${{ secrets.EMAIL_TO }}
   
 jobs:
       build:
