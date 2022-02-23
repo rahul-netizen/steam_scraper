@@ -199,7 +199,7 @@ def send_email():
     print('Sending email..')
 
     #get secrets from os
-    emailfrom =  os.enivron['FROM_EMAIL']
+    emailfrom =  os.environ['FROM_EMAIL']
     emailto = os.environ['TO_EMAIL']
     fileToSend = "steam_data.csv"
     username = os.environ['USERNAME_FROM']
