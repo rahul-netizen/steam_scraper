@@ -13,7 +13,7 @@ Or by going to this [link](https://mybinder.org/v2/gh/rahul-netizen/steam_scrapp
 > In this project I did following things:
 
 - Used *selenium* to run the browser to open the steam website
-- Navigated to topsellers page, scrapped game titles for info like name,price,date of game title using *beautiful soup*
+- Navigated to topsellers page, scraped game titles for info like name,price,date of game title using *beautiful soup*
 - Using *requests* to get page for each tiltle then scraped info like review,rating,description,tags,publisher,developer of game
 - Saved all the data to a *csv* file
 - Loading it back using *pandas*
