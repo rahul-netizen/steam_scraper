@@ -43,5 +43,5 @@ jobs:
           - name: 'Upload Artifact'
             uses: actions/upload-artifact@v3
             with:
-              name: ${RELEASE_DATE}
-              path: ./logs
+              name: ${{ env.RELEASE_DATE}}
+              path: ./logs/${{ env.RELEASE_DATE}}/steam_data.csv
