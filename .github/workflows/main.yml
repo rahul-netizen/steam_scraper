@@ -34,3 +34,14 @@ jobs:
               python scrapper.py
             env:
               key: ${{ secrets.key }} # if run.py requires passwords..etc, set it as secret
+              
+          - name: Generate artifact name
+            id: generate-name
+            run: |
+              echo "RELEASE_DATE=$(date --rfc-3339=date).csv" >> ${GITHUB_ENV}
+          
+          - name: 'Upload Artifact'
+            uses: actions/upload-artifact@v3
+            with:
+              name: ${RELEASE_DATE}
+              path: ./logs
