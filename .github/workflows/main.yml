@@ -35,12 +35,12 @@ jobs:
             env:
               key: ${{ secrets.key }} # if run.py requires passwords..etc, set it as secret
               
-          - name: Generate artifact name
-            id: generate-name
+          - name: Generate artifact name # genrating name based on date and saving as env variable
+            id: generate-name 
             run: |
               echo "RELEASE_DATE=$(date --rfc-3339=date)" >> ${GITHUB_ENV}
           
-          - name: 'Upload Artifact'
+          - name: 'Upload Artifact'  # artifacts are saved as logs under individual workflow run
             uses: actions/upload-artifact@v3
             with:
               name: ${{ env.RELEASE_DATE}}
