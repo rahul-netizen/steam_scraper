@@ -38,10 +38,10 @@ jobs:
           - name: Generate artifact name
             id: generate-name
             run: |
-              echo "RELEASE_DATE=$(date --rfc-3339=date).csv" >> ${GITHUB_ENV}
+              echo "RELEASE_DATE=$(date --rfc-3339=date)" >> ${GITHUB_ENV}
           
           - name: 'Upload Artifact'
             uses: actions/upload-artifact@v3
             with:
               name: ${{ env.RELEASE_DATE}}
-              path: ./logs/${{ env.RELEASE_DATE}}/steam_data.csv
+              path: ./steam_data.csv
