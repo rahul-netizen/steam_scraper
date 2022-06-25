@@ -142,7 +142,7 @@ def start_driver():
 
     # options = webdriver.ChromeOptions()
     # driver = webdriver.Chrome(
-    #     executable_path='./chromedriver.exe', options=options)
+    #      executable_path='./chromedriver.exe', options=options)
 
     chrome_options = Options()
     chrome_options.add_argument('--headless')
@@ -163,8 +163,10 @@ def start_driver():
     print(driver.title)
     
     #driver.get_screenshot_as_file("screenshot.png")
-    driver.find_element_by_xpath(
-        '/html/body/div[1]/div[7]/div[5]/div[1]/div[1]/div/div[1]/div[8]/a[1]').click()
+    # driver.find_element_by_xpath(
+    #     '/html/body/div[1]/div[7]/div[5]/div[1]/div[1]/div/div[1]/div[8]/a[1]').click()
+
+    driver.get('https://store.steampowered.com/search/?filter=topsellers')
     
     scroll_page(driver)
     html_text = driver.page_source  # get scrolled page contents
