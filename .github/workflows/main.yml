@@ -44,4 +44,4 @@ jobs:
             uses: actions/upload-artifact@v3
             with:
               name: ${{ env.RELEASE_DATE}}
-              path: ./logs
+              path: logs
